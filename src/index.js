@@ -8,7 +8,7 @@ const supportsHistory = 'pushState' in window.history // 检测浏览器是否�
 
 ReactDOM.render(
   <BrowserRouter
-    basename='/tiger-game'
+    basename='/'
     forceRefresh={!supportsHistory} // 不支持的话注入强制刷新模式
   >
     <Root/>
