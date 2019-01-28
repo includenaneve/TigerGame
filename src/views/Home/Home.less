@@ -1,4 +1,5 @@
 .home {
+  font-family: Tahoma, Arial, Roboto, "Droid Sans", "Helvetica Neue", "Droid Sans Fallback", "Heiti SC", sans-self;
   position: absolute;
   top: 0;
   left: 0;
@@ -7,5 +8,217 @@
   .bg-img {
     width: 100%;
     border: none;
+  }
+  .fixed-air {
+    position: absolute;
+    top: 27vw;
+    left: 9vw;
+    z-index: 999;
+    width: 30vw;
+  }
+  .fixed-pet {
+    position: absolute;
+    top: 86vw;
+    left: 68vw;
+    z-index: 999;
+    width: 30vw;
+  }
+  .fixed-staff {
+    position: absolute;
+    top: 41vw;
+    left: 61vw;
+    z-index: 999;
+    width: 10vw;
+  }
+  .fixed-plant {
+    position: absolute;
+    top: 82vw;
+    left: -3vw;
+    z-index: 999;
+    width: 30vw;
+  }
+  .main-wrapper {
+    position: absolute;
+    width: 100%;
+    top: 120vw;
+    .type-wrapper {
+      width: 90vw;
+      margin-left: 5vw;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      .type-box {
+        background: rgba(253, 206, 64, 0.99);
+        width: 20vw;
+        border: solid 1px #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        .type-icon {
+          width: 10vw;
+        }
+        .type-dec {
+          font-size: 12px;
+          height: 20px;
+        }
+      }
+      .type-box-checked {
+        background: rgba(255, 124, 52, 0.99);
+        padding-top: 5px;
+      }
+    }
+    .label-wrapper {
+      margin-top: 5px;
+      width: 90vw;
+      margin-left: 5vw;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      .label-box {
+        background: rgba(100, 100, 100, 0.5);
+        width: 16vw;
+        height: 16vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        .label-icon {
+          width: 10vw;
+        }
+        .label-dec {
+          font-size: 10px;
+          color: #fff;
+          white-space: nowrap;
+        }
+      }
+      .label-box-checked {
+        background: rgba(255, 124, 52, 0.99);
+        padding-top: 5px;
+      }
+    }
+  }
+}
+
+// iPhone4 && iPhone4s
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .home {
+    .bg-img {
+    }
+    .main-wrapper {
+      .type-wrapper {
+        .type-box {
+          .type-icon {
+          }
+          .type-dec {
+          }
+        }
+        .type-box-checked {
+        }
+      }
+      .label-wrapper {
+        .label-box {
+          .label-icon {
+          }
+          .label-dec {
+            font-size: 8px;
+          }
+        }
+        .label-box-checked {
+        }
+      }
+    }
+  }
+}
+// iPhone5 && iPhone5s
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+  .home {
+    .bg-img {
+    }
+    .main-wrapper {
+      .type-wrapper {
+        .type-box {
+          .type-icon {
+          }
+          .type-dec {
+          }
+        }
+        .type-box-checked {
+        }
+      }
+      .label-wrapper {
+        .label-box {
+          .label-icon {
+          }
+          .label-dec {
+          }
+        }
+        .label-box-checked {
+        }
+      }
+    }
+  }
+}
+// iphone6
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {   
+  .home {
+    .bg-img {
+    }
+    .main-wrapper {
+      top: 121vw;
+      .type-wrapper {
+        .type-box {
+          .type-icon {
+          }
+          .type-dec {
+          }
+        }
+        .type-box-checked {
+        }
+      }
+      .label-wrapper {
+        .label-box {
+          .label-icon {
+          }
+          .label-dec {
+          }
+        }
+        .label-box-checked {
+        }
+      }
+    }
+  }
+}
+// iPhone6s +
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {   
+  .home {
+    .bg-img {
+    }
+    .main-wrapper {
+      top: 122vw;
+      .type-wrapper {
+        .type-box {
+          .type-icon {
+          }
+          .type-dec {
+          }
+        }
+        .type-box-checked {
+        }
+      }
+      .label-wrapper {
+        .label-box {
+          .label-icon {
+          }
+          .label-dec {
+          }
+        }
+        .label-box-checked {
+        }
+      }
+    }
   }
 }
