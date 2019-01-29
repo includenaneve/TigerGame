@@ -1,0 +1,22 @@
+.staffFixed-loop(@n, @i:0) when (@i <= @n) {
+  .staffFixed-@{i} when (@i < 12) {
+    top: 63vw + (@i - 8) * 3vw;
+    left: 60vw + (@i - 8) * 8vw;
+  }
+  .staffFixed-@{i} when (@i < 8) {
+    top: 52vw + (@i - 4) * 3vw;
+    left: 60vw + (@i - 4) * 8vw;
+  }
+  .staffFixed-@{i} when (@i < 4) {
+    top: 41vw + @i * 3vw;
+    left: 60vw + @i * 8vw;
+  }
+  .staffFixed-loop(@n, @i + 1);
+}
+.staff-all {
+  .staffFixed {
+    position: absolute;
+    width: 10vw;
+  }
+  .staffFixed-loop(11);
+}

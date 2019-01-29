@@ -13,29 +13,43 @@
     position: absolute;
     top: 27vw;
     left: 9vw;
-    z-index: 999;
+    z-index: 10;
+    width: 30vw;
+  }
+  .fixed-air5 {
+    position: absolute;
+    top: 70vw;
+    left: 45vw;
+    z-index: 10;
     width: 30vw;
   }
   .fixed-pet {
     position: absolute;
     top: 86vw;
-    left: 68vw;
-    z-index: 999;
-    width: 30vw;
+    left: 64vw;
+    z-index: 10;
+    width: 27vw;
   }
   .fixed-staff {
     position: absolute;
     top: 41vw;
     left: 61vw;
-    z-index: 999;
+    z-index: 10;
     width: 10vw;
   }
   .fixed-plant {
     position: absolute;
     top: 82vw;
     left: -3vw;
-    z-index: 999;
+    z-index: 10;
     width: 30vw;
+  }
+  .fixed-plant5 {
+    position: absolute;
+    top: 83vw;
+    left: 24vw;
+    z-index: 10;
+    width: 15vw;
   }
   .main-wrapper {
     position: absolute;
@@ -94,6 +108,9 @@
           color: #fff;
           white-space: nowrap;
         }
+        .checkText {
+          color: #fff; 
+        }
       }
       .label-box-checked {
         background: rgba(255, 124, 52, 0.99);
@@ -101,8 +118,30 @@
       }
     }
   }
+  .submit-animation {
+    position: absolute;
+    top: 161vw;
+    left: 50vw;
+    width: 18vw;
+    margin-left: -10vw;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+    -webkit-animation-name: submit;
+    animation-name: submit;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
 }
-
+@keyframes submit {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
 // iPhone4 && iPhone4s
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
   .home {

@@ -3,9 +3,11 @@ import { observer } from 'mobx-react'
 
 import './Home.less'
 import * as homebg from '@images/tigergame/home.png'
+import * as submitBtn from '@images/tigergame/submit.png'
 import { types, labels } from '@constants/constants'
 import HomeData from './HomeData'
 import { observable } from 'mobx'
+import Staff from './staff/staff'
 @observer
 class Home extends Component {
   @observable data = new HomeData()
@@ -32,16 +34,19 @@ class Home extends Component {
     const { setDataByKey, updateChoosenLabels, hideLabel } = this.data
     return (
       <div className="home">
+        {/* 背景图 */}
         <img className="bg-img" src={homebg.default} alt=""/>
-        { choosenLabels.air && <img className="fixed-air" src={this.findPic(choosenLabels.air)} alt=""/> }
+        {/* 选中摆件位置 */}
+        { choosenLabels.air && choosenLabels.air !== 'air5' && <img className="fixed-air" src={this.findPic(choosenLabels.air)} alt=""/> }
+        { choosenLabels.air && choosenLabels.air === 'air5' && <img className="fixed-air5" src={this.findPic(choosenLabels.air)} alt=""/> }
         { choosenLabels.pet && <img className="fixed-pet" src={this.findPic(choosenLabels.pet)} alt=""/> }
-        { choosenLabels.staff && <img className="fixed-staff" src={this.findPic(choosenLabels.staff)} alt=""/> }
-        { choosenLabels.plant && <img className="fixed-plant" src={this.findPic(choosenLabels.plant)} alt=""/> }
-        <img src="" alt=""/>
+        { choosenLabels.staff && <Staff url={this.findPic(choosenLabels.staff)}/> }
+        { choosenLabels.plant && choosenLabels.plant !== 'plant5' && <img className="fixed-plant" src={this.findPic(choosenLabels.plant)} alt=""/> }
+        { choosenLabels.plant && choosenLabels.plant === 'plant5' && <img className="fixed-plant5" src={this.findPic(choosenLabels.plant)} alt=""/> }
+        {/* 交互界面 */}
         <div className="main-wrapper">
           <div className="type-wrapper">
-            {
-              types.map(item => {
+            { types.map(item => {
                 return (
                   <div key={item.key} className={item.key === currentType ? 'type-box type-box-checked' : 'type-box'} onClick={() => setDataByKey('currentType', item.key)}>
                     <img className="type-icon" src={item.icon} alt=""/>
@@ -52,18 +57,19 @@ class Home extends Component {
             }
           </div>
           <div className="label-wrapper">
-            {
-              labels[currentType] && labels[currentType].map(item => {
+            { labels[currentType] && labels[currentType].map(item => {
                 return (
                   <div key={item.key} className='label-box' onClick={() => updateChoosenLabels(item.key)}>
                     { hideLabel !== item.key ? <img className="label-icon" src={item.icon} alt=""/> : null }
-                    { hideLabel !== item.key ? <div className="label-dec">{item.name}</div> : <div>选中</div> }
+                    { hideLabel !== item.key ? <div className="label-dec">{item.name}</div> : <div className="checkText">选中</div> }
                   </div>
                 )
               })
             }
           </div>
         </div>
+        {/* 召唤按钮 */}
+        <img className="submit-animation" src={submitBtn} alt=""/>
       </div>
     )
   }

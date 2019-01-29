@@ -10,8 +10,8 @@ class Main extends Component {
   render() {
     return (
       <Switch>
-        <Route path="/home" component={Home}/>
         <Route path="/auth" component={Auth}/>
+        <Route path="/home" component={Home}/>
         <Route component={() => <DefaultPage text="页面找不到啦~"/>}/>
       </Switch>
     )
