@@ -1,4 +1,5 @@
 import * as pics from '@images/tigergame/home/export'
+import * as gods from '@images/tigergame/cards/export'
 
 export const types = [
   { key: 'air', name: '空调', icon: pics.air4 },

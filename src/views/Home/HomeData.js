@@ -10,7 +10,9 @@ export default class HomeData {
       plant: null
     },
     showCloud: 0,
-    clicked: 0
+    clicked: 0,
+    won: 0,
+    winNumber: -1
   }
 
   @computed get canSubmit() {

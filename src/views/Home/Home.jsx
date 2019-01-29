@@ -10,19 +10,61 @@ import { observable, when } from 'mobx'
 import Staff from './staff/staff'
 
 import Cloud from '@views/Cloud/Cloud'
+import ResultCard from '@components/ResultCard/ResultCard'
+import { getNoRepeat3, getRepeat3 } from '@utils/utils'
+import { API } from '@api/API'
 @observer
 class Home extends Component {
   @observable data = new HomeData()
 
   getCookie = idKey => { // 根据cookie名称获取值
     if(document.cookie.includes(idKey)) {
-      let tigerId = document.cookie.split('; ').filter(item => item.includes('tigerGameId'))[0].split('=')[1]
+      let tigerId = document.cookie.split('; ').filter(item => item.includes(idKey))[0].split('=')[1]
       return decodeURIComponent(tigerId)
     }
     return ''
   }
 
-  componentDidMount() {
+  getUUID = (idKey = 'uuid') => { // 根据cookie名称获取值
+    const storageId = localStorage.getItem(idKey)
+    const cookieId = this.getCookie(idKey)
+    if (storageId) {
+      return decodeURIComponent(storageId)
+    }
+    if (cookieId) {
+      return storageId
+    }
+    return false
+  }
+
+  componentDidMount = async() => {
+    const uuid = this.getUUID()
+    try {
+      const res = await API.roll(uuid)
+      if (res.err && parseInt(res.err) === -1) {
+        alert('在首页开始才能得到大神的眷顾哦~')
+        this.props.history.push('auth')
+      } else if (res.err && parseInt(res.err) === -2) {
+        alert('当前可参与次数已达上限~')
+        this.props.history.push('auth')
+      } else {
+        this.data.setDataByKey('winNumber', parseInt(res.pool))
+      }
+    } catch (e) {
+      alert(e)
+    }
+    if (uuid === false) {
+      alert('在首页开始才能得到大神的眷顾哦~')
+      this.props.history.push('auth')
+    } else {
+      try {
+        const res = await API.login(uuid)
+        this.data.setDataByKey('won', parseInt(res.won))
+      } catch (e) {
+        alert(e)
+      }
+    }
+
     when(
      () => this.data.canSubmit,
      () => this.refs.submit.style.animationPlayState = "running"
@@ -45,6 +87,7 @@ class Home extends Component {
     const { setDataByKey, updateChoosenLabels, hideLabel, canSubmit } = this.data
     return (
       <div className="home">
+        { showCloud == 0 ? null : <ResultCard arr={getNoRepeat3(11)} /> }
         { showCloud == 0 ? null : <Cloud /> }
         {/* 背景图 */}
         <img className="bg-img" src={homebg.default} alt=""/>

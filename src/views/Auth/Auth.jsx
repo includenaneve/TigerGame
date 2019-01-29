@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 
 import './Auth.less'
+import * as welcome from '@images/tigergame/welcome.png'
+import * as submitBtn from '@images/tigergame/submit.png'
+import { UUID } from '@utils/utils'
+import { API } from '@api/API'
 export default class Auth extends Component {
 
   setCookie = (idKey, value, lifeDay) => { // cookie名称, 传入的值, 过期时间（x天后）
@@ -16,22 +20,19 @@ export default class Auth extends Component {
     return ''
   }
 
-  checkLoginStatus = idKey => { // 检测localStorage和cookie有没有当前用户信息
+  checkUUID = idKey => { // 检测localStorage和cookie有没有当前用户信息
     const storageId = localStorage.getItem(idKey)
     const cookieId = this.getCookie(idKey)
-    const { history } = this.props
     if (storageId) {
-      history.push('home')
-      return
+      return decodeURIComponent(storageId)
     }
     if (cookieId) {
-      history.push('home')
-      return
+      return storageId
     }
-    const id = prompt('输入你的ID以作登录')
+    const id = UUID()
     localStorage.setItem(idKey, encodeURIComponent(id))
     this.setCookie(idKey, id, 7)
-    history.push('home')
+    return id
   }
 
   limitWeixin = () => {
@@ -44,15 +45,28 @@ export default class Auth extends Component {
      }
   }
 
+  checkGame = async() => {
+    const uuid = this.checkUUID('uuid')
+    try {
+      const res = await API.login(uuid)
+      if (parseInt(res.remain) > 0) { // 如果剩余次数大于等于1次
+        this.props.history.push('home')
+      } else {
+        alert('机会已经用完，不能再玩了~')
+      }
+    } catch (e) {
+      alert(e)
+    }
+  }
+
   componentDidMount() {
-    const res = this.limitWeixin()
-    res && this.checkLoginStatus('tigerId')
   }
 
   render() {
     return (
       <div className="auth">
-        验证身份中
+        <img className="auth-bg" src={welcome.default} alt=""/>
+        <img className="auth-submit" src={submitBtn} alt="" onClick={this.checkGame}/>
       </div>
     )
   }
