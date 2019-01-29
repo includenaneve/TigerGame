@@ -10,7 +10,6 @@ export default class DefaultPage extends Component {
         <img className="pic" src={defaultPic.default} alt=""/>
         <div className="text" >{this.props.text}</div>
       </div>
-      
     )
   }
 }

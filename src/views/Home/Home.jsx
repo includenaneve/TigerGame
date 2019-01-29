@@ -6,7 +6,7 @@ import * as homebg from '@images/tigergame/home.png'
 import * as submitBtn from '@images/tigergame/submit.png'
 import { types, labels } from '@constants/constants'
 import HomeData from './HomeData'
-import { observable } from 'mobx'
+import { observable, when } from 'mobx'
 import Staff from './staff/staff'
 @observer
 class Home extends Component {
@@ -21,6 +21,10 @@ class Home extends Component {
   }
 
   componentDidMount() {
+    when(
+     () => this.data.canSubmit,
+     () => this.refs.submit.style.animationPlayState = "running"
+    )
   }
 
   findPic = key => {
@@ -69,7 +73,7 @@ class Home extends Component {
           </div>
         </div>
         {/* 召唤按钮 */}
-        <img className="submit-animation" src={submitBtn} alt=""/>
+        <img ref="submit" className="submit-animation" src={submitBtn} alt=""/>
       </div>
     )
   }

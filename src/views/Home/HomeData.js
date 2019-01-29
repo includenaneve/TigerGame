@@ -11,6 +11,11 @@ export default class HomeData {
     }
   }
 
+  @computed get canSubmit() {
+    const { air, pet, staff, plant } = this.store.choosenLabels
+    return air && pet && staff && plant
+  }
+
   @computed get hideLabel() {
     return this.store.choosenLabels[this.store.currentType]
   }

@@ -34,8 +34,19 @@ export default class Auth extends Component {
     history.push('home')
   }
 
+  limitWeixin = () => {
+    let useragent = navigator.userAgent
+     if (useragent.includes('MicroMessenger')) {
+       return true
+     } else {
+      this.props.history.replace('weixin')
+      return false
+     }
+  }
+
   componentDidMount() {
-    this.checkLoginStatus('tigerId')
+    const res = this.limitWeixin()
+    res && this.checkLoginStatus('tigerId')
   }
 
   render() {

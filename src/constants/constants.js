@@ -1,4 +1,4 @@
-import * as pics from '@images/tigergame/export'
+import * as pics from '@images/tigergame/home/export'
 
 export const types = [
   { key: 'air', name: '空调', icon: pics.air4 },
