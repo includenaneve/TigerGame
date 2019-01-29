@@ -80,7 +80,7 @@ module.exports = function(webpackEnv) {
       },
       {
         loader: require.resolve('css-loader'),
-        options: cssOptions,
+        options: {...cssOptions, javascriptEnabled: true},
       },
       {
         // Options for PostCSS as we reference these options twice
@@ -457,6 +457,7 @@ module.exports = function(webpackEnv) {
                 {
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
+                  javascriptEnabled: true
                 },
                 'less-loader'
               ),
@@ -470,6 +471,7 @@ module.exports = function(webpackEnv) {
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                   modules: false,
                   getLocalIdent: getCSSModuleLocalIdent,
+                  javascriptEnabled: true
                 },
                 'less-loader'
               ),

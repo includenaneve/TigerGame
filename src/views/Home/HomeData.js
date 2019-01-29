@@ -8,7 +8,9 @@ export default class HomeData {
       pet: null,
       staff: null,
       plant: null
-    }
+    },
+    showCloud: 0,
+    clicked: 0
   }
 
   @computed get canSubmit() {

@@ -8,6 +8,8 @@ import { types, labels } from '@constants/constants'
 import HomeData from './HomeData'
 import { observable, when } from 'mobx'
 import Staff from './staff/staff'
+
+import Cloud from '@views/Cloud/Cloud'
 @observer
 class Home extends Component {
   @observable data = new HomeData()
@@ -33,11 +35,17 @@ class Home extends Component {
     return arr.filter(item => item.key === key)[0].icon
   }
 
+  handleSubmit = () => {
+    this.data.setDataByKey('clicked', 1)
+    this.data.setDataByKey('showCloud', 1)
+  }
+
   render() {
-    const { currentType, choosenLabels } = this.data.store
-    const { setDataByKey, updateChoosenLabels, hideLabel } = this.data
+    const { currentType, choosenLabels, showCloud } = this.data.store
+    const { setDataByKey, updateChoosenLabels, hideLabel, canSubmit } = this.data
     return (
       <div className="home">
+        { showCloud == 0 ? null : <Cloud /> }
         {/* 背景图 */}
         <img className="bg-img" src={homebg.default} alt=""/>
         {/* 选中摆件位置 */}
@@ -73,7 +81,7 @@ class Home extends Component {
           </div>
         </div>
         {/* 召唤按钮 */}
-        <img ref="submit" className="submit-animation" src={submitBtn} alt=""/>
+        <img ref="submit" className="submit-animation" src={submitBtn} alt="" onClick={canSubmit ? this.handleSubmit : null }/>
       </div>
     )
   }

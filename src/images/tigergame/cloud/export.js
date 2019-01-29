@@ -1,0 +1,6 @@
+export { default as cloud1 } from './cloud1.png'
+export { default as cloud2 } from './cloud2.png'
+export { default as cloud3 } from './cloud3.png'
+export { default as cloud4 } from './cloud4.png'
+export { default as cloud5 } from './cloud5.png'
+export { default as cloud6 } from './cloud6.png'

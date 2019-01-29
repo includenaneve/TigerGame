@@ -1,0 +1,55 @@
+.cloud-loop (@n, @i:1) when (@i <= @n) {
+  .cloud-@{i} when (@i < 13) {
+    top: @i * 10vw;
+    right: -100vw;
+    animation-delay: @i / 4s;
+    animation-name: toLeft;
+  }
+  .cloud-@{i} when (@i < 6) {
+    top: @i * 20vw;
+    left: -100vw;
+    animation-delay: @i / 2s;
+    animation-name: toRight;
+  }
+  .cloud-loop(@n, @i + 1)
+}
+.clouds-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  overflow: hidden;
+  .cloud {
+    width: 100vw;
+    position: absolute;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  .cloud-loop(12);
+}
+
+@keyframes toRight {
+  0% {
+    opacity: 0;
+    left: -100vw;
+  }
+  100% {
+    opacity: 1;
+    left: -20vw;
+  }
+}
+
+@keyframes toLeft {
+  0% {
+    opacity: 0;
+    right: -100vw;
+  }
+  100% {
+    opacity: 1;
+    right: -20vw;
+  }
+}
