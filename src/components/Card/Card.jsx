@@ -5,9 +5,8 @@ import './Card.less'
 class Card extends React.Component {
   render() {
     return (
-      <div className="card-wrapper">
+      <div className="card-wrapper" onClick={() => this.props.removeCard(this.props.index)}>
         <img className="card-bg" src={this.props.url} alt=""/>
-        <div className="card-close" onClick={() => this.props.removeArr(this.props.index)}>×</div>
       </div>
     )
   }

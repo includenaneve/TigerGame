@@ -1,18 +1,53 @@
-.cloud-loop (@n, @i:1) when (@i <= @n) {
-  .cloud-@{i} when (@i < 13) {
-    top: @i * 10vw;
-    right: -100vw;
-    animation-delay: @i / 4s;
-    animation-name: toLeft;
-  }
-  .cloud-@{i} when (@i < 6) {
-    top: @i * 20vw;
-    left: -100vw;
-    animation-delay: @i / 2s;
-    animation-name: toRight;
-  }
-  .cloud-loop(@n, @i + 1)
+@keyframes cloud1 {
+  from { width: 50vw; opacity: 0; left: -100vw}
+  to { width: 110vw; opacity: 1; left: -30vw}
 }
+@keyframes cloud2 {
+  from { width: 50vw; opacity: 0; right: -100vw}
+  to { width: 110vw; opacity: 1; right: -41vw}
+}
+@keyframes cloud3 {
+  from { width: 50vw; opacity: 0; left: -100vw}
+  to { width: 110vw; opacity: 1; left: -52vw}
+}
+@keyframes cloud4 {
+  from { width: 50vw; opacity: 0; right: -100vw}
+  to { width: 110vw; opacity: 1; right: -51vw}
+}
+@keyframes cloud5 {
+  from { width: 50vw; opacity: 0; left: -100vw}
+  to { width: 110vw; opacity: 1; left: 8vw}
+}
+@keyframes cloud6 {
+  from { width: 50vw; opacity: 0; left: -100vw}
+  to { width: 110vw; opacity: 1; left: -41vw}
+}
+@keyframes cloud7 {
+  from { width: 50vw; opacity: 0; right: -100vw}
+  to { width: 110vw; opacity: 1; right: -35vw}
+}
+@keyframes cloud8 {
+  from { width: 50vw; opacity: 0; right: -100vw}
+  to { width: 110vw; opacity: 1; right: -22vw}
+}
+@keyframes cloud9 {
+  from { width: 50vw; opacity: 0; right: -100vw}
+  to { width: 110vw; opacity: 1; right: -11vw}
+}
+@keyframes cloud10 {
+  from { width: 50vw; opacity: 0; left: -100vw}
+  to { width: 110vw; opacity: 1; left: -50vw}
+}
+@keyframes cloud11 {
+  from { width: 50vw; opacity: 0; right: -100vw}
+  to { width: 110vw; opacity: 1; right: -71vw}
+}
+@keyframes cloud12 {
+  from { width: 50vw; opacity: 0; left: -100vw}
+  to { width: 110vw; opacity: 1; left: -32vw}
+}
+
+
 .clouds-wrapper {
   position: absolute;
   top: 0;
@@ -24,32 +59,82 @@
   .cloud {
     width: 100vw;
     position: absolute;
-    animation-iteration-count: 1;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
+    bottom: 0;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
   }
-  .cloud-loop(12);
-}
-
-@keyframes toRight {
-  0% {
-    opacity: 0;
+  .cloud-1 {
+    animation-name: cloud1;
+    animation-delay: 0s;
+    top: 0;
     left: -100vw;
-  }
-  100% {
-    opacity: 1;
-    left: -20vw;
-  }
-}
-
-@keyframes toLeft {
-  0% {
-    opacity: 0;
+  };
+  .cloud-2 {
+    animation-name: cloud2;
+    animation-delay: 0.3s;
+    top: 14vw;
     right: -100vw;
-  }
-  100% {
-    opacity: 1;
-    right: -20vw;
-  }
+  };
+  .cloud-3 {
+    animation-name: cloud3;
+    animation-delay: 0.6s;
+    top: 40vw;
+    left: -100vw;
+  };
+  .cloud-4 {
+    animation-name: cloud4;
+    animation-delay: 0.9s;
+    top: 46vw;
+    right: -100vw;
+  };
+  .cloud-5 {
+    animation-name: cloud5;
+    animation-delay: 0s;
+    top: 57vw;
+    left: -100vw;
+  };
+  .cloud-6 {
+    animation-name: cloud6;
+    animation-delay: 0.3s;
+    top: 78vw;
+    left: -100vw;
+  };
+  .cloud-7 {
+    animation-name: cloud7;
+    animation-delay: 0.3s;
+    top: 100vw;
+    right: -100vw;
+  };
+  .cloud-8 {
+    animation-name: cloud8;
+    animation-delay: 0.9s;
+    top: 113vw;
+    right: -100vw;
+  };
+  .cloud-9 {
+    animation-name: cloud9;
+    animation-delay: 0.6s;
+    width: 54vw;
+    top: 129vw;
+    right: -100vw;
+  };
+  .cloud-10 {
+    animation-name: cloud10;
+    animation-delay: 0.3s;
+    top: 120vw;
+    left: -100vw;
+  };
+  .cloud-11 {
+    animation-name: cloud11;
+    animation-delay: 0.6s;
+    top: 139vw;
+    right: -100vw;
+  };
+  .cloud-12 {
+    animation-name: cloud12;
+    animation-delay: 0.3s;
+    top: 147vw;
+    left: -100vw;
+  };
 }

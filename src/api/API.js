@@ -1,7 +1,7 @@
 import axios from "axios"
 
-const apiUrl = 'http://sh.itsnot.club:3000/'
-// const apiUrl = 'http://babybang-easymock.default.svc.cluster.local/project/5c4ec672399a71002074fb79/'
+// const apiUrl = 'http://sh.itsnot.club:3000/'
+const apiUrl = ' https://www.easy-mock.com/mock/5c5090971d995534795d155f/'
 
 let API = {}
 

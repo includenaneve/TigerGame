@@ -9,10 +9,15 @@ export default class HomeData {
       staff: null,
       plant: null
     },
-    showCloud: 0,
-    clicked: 0,
-    won: 0,
-    winNumber: -1
+    remain: null,
+    used: null,
+    won: null,
+    cloudShow: 0,
+    resArr: null
+  }
+  
+  @computed get cardShow() {
+    return this.store.resArr && this.store.resArr.length > 0
   }
 
   @computed get canSubmit() {
@@ -22,6 +27,18 @@ export default class HomeData {
 
   @computed get hideLabel() {
     return this.store.choosenLabels[this.store.currentType]
+  }
+
+  @action removeCard = index => {
+    this.store.resArr && this.store.resArr.length > 0 && this.store.resArr.splice(index, 1)
+  }
+
+  @action cloudAppear = () => {
+    this.store.cloudShow = 1
+  }
+
+  @action cloudDisappear = () => {
+    this.store.cloudShow = 0
   }
 
   @action setDataByKey = (key, value) => {

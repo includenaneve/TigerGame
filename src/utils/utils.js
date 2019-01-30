@@ -1,3 +1,4 @@
+import { labels } from '@constants/constants'
 const myRandom = (min, max) => {
   return parseInt(max - (max - min) * Math.random())
 }
@@ -21,12 +22,8 @@ const getNoRepeat3 = (len) => {
   return arrRes[index]
 }
 
-const getRepeat3 = (len) => {
-  let arrBase =  new Array(len)
-  for(let i = 0; i < len; i++) {
-    arrBase[i] = i
-  }
-  return arrBase.map(item => [item, item, item])
+const getRepeat3 = cardid => {/*  */
+  return [cardid - 1, cardid - 1, cardid - 1]
 }
 
 const UUID = () => {
@@ -35,10 +32,38 @@ const UUID = () => {
       return v.toString(16)
   })
 }
+const getCookie = idKey => { // 根据cookie名称获取值
+  if(document.cookie.includes(idKey)) {
+    let tigerId = document.cookie.split('; ').filter(item => item.includes(idKey))[0].split('=')[1]
+    return decodeURIComponent(tigerId)
+  }
+  return ''
+}
+
+const getUUID = (idKey = 'uuid') => { // 根据cookie名称获取值
+  const storageId = localStorage.getItem(idKey)
+  const cookieId = getCookie(idKey)
+  if (storageId) {
+    return decodeURIComponent(storageId)
+  }
+  if (cookieId) {
+    return storageId
+  }
+  return false
+}
+
+const findPic = key => {
+  const type = key.substring(0, key.length - 1)
+  const arr = labels[type]
+  return arr.filter(item => item.key === key)[0].icon
+}
 
 export {
   getNoRepeat3,
   getRepeat3,
   myRandom,
-  UUID
+  UUID,
+  getUUID,
+  getCookie,
+  findPic
 }
