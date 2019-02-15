@@ -1,0 +1,6 @@
+export { default as resultBg } from './resultBg.jpg'
+export { default as resultBg2 } from './resultBg2.png'
+export { default as fish } from './fish.png'
+export { default as metoo } from './metoo.png'
+export { default as again } from './again.png'
+export { default as qrcode } from './qrcode.png'

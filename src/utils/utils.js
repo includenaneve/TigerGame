@@ -47,7 +47,7 @@ const getUUID = (idKey = 'uuid') => { // 根据cookie名称获取值
     return decodeURIComponent(storageId)
   }
   if (cookieId) {
-    return storageId
+    return getCookie(idKey)
   }
   return false
 }
@@ -58,6 +58,15 @@ const findPic = key => {
   return arr.filter(item => item.key === key)[0].icon
 }
 
+const delayAsync = second => {
+  return new Promise((resolve, reject) => {
+    const id = setTimeout(() => {
+      clearTimeout(id)
+      resolve(true)
+    }, second)
+  })
+}
+
 export {
   getNoRepeat3,
   getRepeat3,
@@ -65,5 +74,6 @@ export {
   UUID,
   getUUID,
   getCookie,
-  findPic
+  findPic,
+  delayAsync
 }

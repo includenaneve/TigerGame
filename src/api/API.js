@@ -1,7 +1,7 @@
 import axios from "axios"
 
-// const apiUrl = 'http://sh.itsnot.club:3000/'
-const apiUrl = ' https://www.easy-mock.com/mock/5c5090971d995534795d155f/'
+const apiUrl = 'http://sh.itsnot.club:3000/'
+// const apiUrl = ' https://www.easy-mock.com/mock/5c5090971d995534795d155f/'
 
 let API = {}
 
@@ -40,6 +40,14 @@ API.login = uuid => {
 
 API.roll = uuid => {
   return API.gm('roll?openid=' + uuid)
+}
+
+API.won = () => {
+  return API.gm('tester?action=prize')
+}
+
+API.big = () => {
+  return API.gm('tester?action=jackpot')
 }
 
 export {

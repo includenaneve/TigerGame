@@ -1,0 +1,5 @@
+export { default as top } from './top.png'
+export { default as btm } from './btm.png'
+export { default as avengers } from './avengers.png'
+export { default as title } from './title.png'
+export { default as submit } from './submit.png'

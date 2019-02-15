@@ -1,0 +1,76 @@
+.result-wrapper {
+  position: relative;
+  overflow: hidden;
+  .fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .final-pic {
+      object-fit: contain;
+      width: 100vw;
+      height: 100vh;
+    }
+  }
+  .result-bg {
+    width: 100vw;
+  }
+  .shuiyin {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 4vw;
+    position: absolute;
+    width: 100vw;
+    top: 1vw;
+    display: block;
+  }
+  .gods-wrapper {
+    position: absolute;
+    width: 100vw;
+    top: 36vw;
+    .god {
+      position: absolute;
+      width: 60vw;
+      object-fit: contain;
+    }
+    .god-0 {
+      left: -10vw;
+      z-index: 10;
+    }
+    .god-1 {
+      left: 20vw;
+      z-index: 15;
+    }
+    .god-2 {
+      right: -10vw;
+      z-index: 10;
+    }
+  }
+  .fish {
+    position: absolute;
+    top: 80vw;
+    width: 100vw;
+    z-index: 100;
+    display: block;
+  }
+  .btn-wrapper {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0vw;
+    object-fit: contain;
+    .btn {
+      height: 15vw;
+    }
+  }
+  .qrcode {
+    width: 16vw;
+    height: 16vw;
+    position: absolute;
+    top: 147vw;
+    left: 49vw;
+    margin-left: -8vw;
+    z-index: 99;
+  }
+}

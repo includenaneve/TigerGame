@@ -1,20 +1,199 @@
-.auth {
-  color: #333;
-  font-size: 20px;
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  .auth-bg {
-    width: 100%;
-  }
-  .auth-submit {
-    position: absolute;
-    top: 161vw;
+@keyframes click1 {
+  from {
+    bottom: 9vw;
     left: 50vw;
+  }
+  to {
+    bottom: 8vw;
+    left: 51vw;
+  }
+}
+
+@keyframes Authcloud1 {
+  0% {
+    opacity: 0.5;
+    left: 10vw;
+  }
+  100% {
+    opacity: 1;
+    left: 100vw;
+  }
+}
+
+@keyframes Authcloud2 {
+  0% {
+    opacity: 0.5;
+    left: -50vw;
+  }
+  100% {
+    opacity: 1;
+    left: 100vw;
+  }
+}
+
+@keyframes title1 {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+.auth {
+  height:100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  background-image: url("~@images/tigergame/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  .share-wrapper {
+    opacity: 0;
+  }
+  .audioStatus {
+    position: absolute;
+    top: 2vw;
+    right: 2vw;
+    width: 8vw;
+    height: 8vw;
+    z-index: 99;
+  }
+  .frame-top {
+    width: 100%;
+    .top-pic {
+      width: 100%;
+      display: block;
+    }
+  }
+  .frame-middle {
+    background-image: url("~@images/tigergame/px.png");
+    background-size: contain;
+    background-repeat: repeat-y;
+    height: auto;
+    flex-grow: 1;
+  }
+  .frame-btm {
+    width: 100%;
+    .btm-pic {
+      width: 100%;
+      display: block;
+    }
+  }
+  .auth-cloud1 {
+    width: 45vw;
+    position: absolute;
+    top: 97vw;
+    left: 10vw;
+    z-index: 20;
+    animation-name: Authcloud1;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+  }
+  .auth-cloud2 {
+    width: 70vw;
+    position: absolute;
+    top: 87vw;
+    left: -50vw;
+    animation-name: Authcloud2;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+  }
+  .mask {
+    background: rgba(122,122,122,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    .finger {
+      display: block;
+      position: absolute;
+      top: 50vw;
+      left: 40vw;
+      width: 20vw;
+      animation-name: finger;
+      animation-iteration-count: 3;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+    }
+  }
+  @keyframes finger {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    90% {
+      transform: scale(0.9);
+      opacity: 1;
+    }
+    to {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+  }
+  .submit {
     width: 16vw;
+    position: absolute;
+    bottom: 9vw;
+    left: 50vw;
     margin-left: -9vw;
+    display: block;
+    animation-name: click1;
+    animation-duration: 0.1s;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+  }
+  .submit-final {
+    width: 16vw;
+    position: absolute;
+    bottom: 9vw;
+    left: 50vw;
+    margin-left: -9vw;
+    display: block;
+    animation-name: title1;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+  }
+  .revenger {
+    position: absolute;
+    width: 100vw;
+    display: block;
+  }
+  .title {
+    position: absolute;
+    width: 100vw;
+    bottom: 26vw;
+    display: block;
+    animation-name: title1;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    z-index: 99;
+  }
+  .test-wrapper {
+    position: absolute;
+    top: 0;
+    height: 60px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .btn {
+      background: rgba(0,0,0,0.5);
+      box-shadow: 4px 4px 4px #000;
+      color: #fff;
+      border-radius: 5px;
+      width: 40vw;
+      text-align: center;
+      padding: 5px 0;
+    }
   }
 }

@@ -10,9 +10,9 @@ export const types = [
 
 export const labels = {
   'air': [
-    { key: 'air1', name: '节能', icon: pics.air3 },
-    { key: 'air2', name: '高温制冷', icon: pics.air2 },
-    { key: 'air3', name: '高温制热', icon: pics.air1 },
+    { key: 'air1', name: 'XtremeSave', icon: pics.air3 },
+    { key: 'air2', name: 'XtremeCool', icon: pics.air2 },
+    { key: 'air3', name: 'XtremeHeat', icon: pics.air1 },
     { key: 'air4', name: '无风感', icon: pics.air4 },
     { key: 'air5', name: '移动空调', icon: pics.air5 }
   ],

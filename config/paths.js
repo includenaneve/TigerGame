@@ -90,7 +90,8 @@ module.exports = {
     "@styles": resolveApp("src/styles"),
     "@utils": resolveApp("src/utils"),
     "@images": resolveApp("src/images"),
-    "@router": resolveApp("src/router")
+    "@router": resolveApp("src/router"),
+    "@audio": resolveApp("src/audio")
   }
 };
 

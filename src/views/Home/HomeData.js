@@ -13,11 +13,16 @@ export default class HomeData {
     used: null,
     won: null,
     cloudShow: 0,
-    resArr: null
+    resArr: null,
+    godArr: null
   }
   
   @computed get cardShow() {
-    return this.store.resArr && this.store.resArr.length > 0
+    return this.store.resArr && this.store.resArr.length > 0 && this.store.cloudShow === 0
+  }
+
+  @computed get cardClosedAll() {
+    return this.store.resArr && this.store.resArr.length === 0 && this.store.cloudShow === 0
   }
 
   @computed get canSubmit() {
@@ -29,8 +34,8 @@ export default class HomeData {
     return this.store.choosenLabels[this.store.currentType]
   }
 
-  @action removeCard = index => {
-    this.store.resArr && this.store.resArr.length > 0 && this.store.resArr.splice(index, 1)
+  @action removeCard = () => {
+    this.store.resArr && this.store.resArr.length > 0 && this.store.resArr.splice(0, 1)
   }
 
   @action cloudAppear = () => {

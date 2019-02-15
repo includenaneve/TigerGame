@@ -1,0 +1,5 @@
+export { default as submit } from '../submit.png'
+export { default as title } from  './title.png'
+export { default as room } from './room.png'
+export { default as top } from './top.png'
+export { default as buttom } from './buttom.png'
